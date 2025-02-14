@@ -1,0 +1,103 @@
+# Documentación de la Aplicación Web
+
+## Introducción
+Esta documentación describe el funcionamiento y los componentes principales de la aplicación web "MiAppWeb". La aplicación está diseñada para proporcionar una experiencia intuitiva y eficiente a los usuarios.
+
+## Tecnologías Utilizadas
+- **Frontend**: React.js
+- **Backend**: Node.js con Express
+- **Base de Datos**: MongoDB
+- **Autenticación**: JSON Web Tokens (JWT)
+- **Estilos**: Tailwind CSS
+- **Despliegue**: Vercel y Heroku
+
+## Instalación y Configuración
+1. Clonar el repositorio:
+   ```bash
+   git clone https://github.com/usuario/miappweb.git
+   ```
+2. Instalar dependencias en el frontend y backend:
+   ```bash
+   cd miappweb/frontend
+   npm install
+   cd ../backend
+   npm install
+   ```
+3. Configurar variables de entorno en un archivo `.env`:
+   ```plaintext
+   PORT=5000
+   MONGO_URI=mongodb+srv://usuario:contraseña@cluster.mongodb.net/db
+   JWT_SECRET=clave_secreta
+   ```
+4. Ejecutar la aplicación:
+   ```bash
+   cd backend
+   npm start
+   ```
+   En otra terminal:
+   ```bash
+   cd frontend
+   npm start
+   ```
+
+## Estructura del Proyecto
+```
+miappweb/
+├── frontend/
+│   ├── src/
+│   │   ├── components/
+│   │   ├── pages/
+│   │   ├── App.js
+│   │   ├── index.js
+│   ├── public/
+│   ├── package.json
+│   ├── .env
+├── backend/
+│   ├── models/
+│   ├── routes/
+│   ├── controllers/
+│   ├── server.js
+│   ├── package.json
+│   ├── .env
+```
+
+## Endpoints Principales (API)
+| Método | Endpoint       | Descripción                    |
+|---------|---------------|--------------------------------|
+| GET     | /api/users    | Obtener todos los usuarios    |
+| POST    | /api/users    | Crear un nuevo usuario        |
+| GET     | /api/posts    | Obtener todas las publicaciones |
+| POST    | /api/posts    | Crear una nueva publicación    |
+
+## Autenticación
+El sistema usa JWT para autenticación. Los usuarios deben iniciar sesión para acceder a ciertas rutas protegidas. Ejemplo de autenticación:
+```bash
+POST /api/auth/login
+Content-Type: application/json
+{
+  "email": "usuario@example.com",
+  "password": "123456"
+}
+```
+
+## Despliegue
+El frontend se despliega en **Vercel** y el backend en **Heroku**. Para realizar el despliegue:
+```bash
+# Despliegue en Heroku
+heroku create miappweb-backend
+heroku config:set MONGO_URI=...
+git push heroku main
+
+# Despliegue en Vercel
+cd frontend
+vercel
+```
+
+## Contribución
+1. Hacer un fork del repositorio.
+2. Crear una rama con la nueva funcionalidad.
+3. Realizar un pull request.
+
+## Contacto
+Para consultas o problemas, contactar a **soporte@miappweb.com**.
+
